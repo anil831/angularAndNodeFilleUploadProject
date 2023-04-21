@@ -1,0 +1,27 @@
+<form #templateDrivenForm="ngForm">
+  <input type="file" (change)="onFileUpload($event)" />
+  <br />
+  <br />
+  <input type="file" #fileupload2 />
+
+  <!--to upload multiple images add multiple attribute to the input element of type file-->
+
+  <!--template reference variable multipleInput it is used in ts file to empty value after uploaded successfully in server -->
+  <div>
+    <label for="">upload multiple images </label>
+    <br>
+    <input type="file" #multipleInput multiple name="multipleImages" (change)="onMultipleImagesUpload($event)">
+
+  </div>
+  <br /> 
+  <br />
+
+  <button (click)="onFileUpload2()">upload</button>
+
+  <img src="http://localhost:3000/{{singleImage}}" alt="">
+
+  <ul>
+    <li *ngFor="let img of multipleImages"><img src="http://localhost:3000/{{img}}" style="width: 200px;height: 200px;">
+    </li>
+  </ul>
+</form>
